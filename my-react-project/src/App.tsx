@@ -1,34 +1,32 @@
+import styles from './App.module.css'
+
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import Button_UI from './components/UI/Button_UI/Button'
+import Modal_UI from './components/UI/Modal_UI/Modal_UI'
+import ModalContent from './components/ModalContent/ModalContent'
 
 function App() {
-  const [count, setCount] = useState(0)
+
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+
+  function openWindow(){
+    setIsOpen(true)
+  }
+
+  function closeWindow(){
+    setIsOpen(false)
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className={styles.Page}>
+
+      <div className={styles.Page__ButtonContainer}>
+        <Button_UI label='Открыть' color='green' onClick={openWindow} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+
+        <Modal_UI isOpen={isOpen} content={<ModalContent />} onClick={closeWindow}/>
+    </div>
   )
 }
 

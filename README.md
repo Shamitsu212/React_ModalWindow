@@ -14,7 +14,7 @@
 
 ---
 
-## 🖼️ Превью макетов
+## 🖼️ Превью pet проекта
 
 Cсылка - https://shamitsu212.github.io/React_ModalWindow
 
